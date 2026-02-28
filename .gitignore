@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Sanal Ortamlar (Virtual Environments)
+venv/
+env/
+.env/
+.venv/
+
+# Log Dosyaları
+*.log
+alerts.log
+
+# VS Code / IDE Caches
+.vscode/
+.idea/
+
+# Ortam Değişkenleri
+.env
+
+# MacOS Dosyaları (Eğer projeye Mac'ten dahil olan olursa diye)
+.DS_Store
