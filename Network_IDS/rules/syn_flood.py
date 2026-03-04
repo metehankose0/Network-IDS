@@ -11,12 +11,12 @@ class SynFloodRule(BaseRule):
         self.time_window = time_window
         self.syn_count = defaultdict(int)
         self.last_check_time = time.time()
-        self.alerted_ips = set() # Aynı IP için sürekli uyarı vermeyi engellemek için
+        self.alerted_ips = set() 
 
     def process_packet(self, packet, logger):
         current_time = time.time()
         
-        # Zaman aralığı (time_window) geçtiyse sayaçları sıfırla
+        
         if current_time - self.last_check_time > self.time_window:
             self.syn_count.clear()
             self.alerted_ips.clear()
@@ -27,7 +27,7 @@ class SynFloodRule(BaseRule):
             ip_dst = packet[IP].dst
             tcp_flags = packet[TCP].flags
             
-            # 'S' bayrağı SYN paketleri içindir
+            
             if tcp_flags == 'S':
                 self.syn_count[ip_src] += 1
                 

@@ -2,7 +2,7 @@ import argparse
 import sys
 import os
 
-# Python'un klasör yapısını tanıması için gerekli yolu ekliyoruz
+
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from core.sniffer import NetworkSniffer
@@ -29,17 +29,16 @@ def main():
 
     display_banner()
     
-    # Kural örneklerini oluştur (Threshold değerleri yani uyarı eşikleri değiştirilebilir)
-    # Örneğin: 1 saniyede aynı IP'den 15 SYN paketi gelirse uyarı ver!
+   
     syn_flood_rule = SynFloodRule(threshold=15, time_window=1) 
     
-    # Sniffer'ı ayağa kaldır
+    
     sniffer = NetworkSniffer(interface=args.interface)
     
-    # Kuralları sniffer'a ekle
+    
     sniffer.add_rule(syn_flood_rule)
     
-    # Dinlemeyi başlat
+    
     sniffer.start()
 
 if __name__ == "__main__":
